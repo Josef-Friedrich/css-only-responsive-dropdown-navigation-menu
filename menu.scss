@@ -91,7 +91,7 @@ $menu-link-padding: 1em;
     display: block;
 
     // Make the menu-items handle the fly-outs smoothly by not allowing
-    //    break the flow
+    // break the flow
     &.has-children {
       &, .menu-item {
         position: relative;
@@ -169,7 +169,6 @@ $menu-link-padding: 1em;
   }
 
   .dropdown-icon {
-
     // Make the dropdown icon size-up equally as the containing
     // menu-item, and then fit it properly inside the menu-item
     padding: $menu-link-padding $menu-link-padding * 1.25;
@@ -266,43 +265,6 @@ $menu-link-padding: 1em;
       }
     }
   }
-
-  .nav--rtl {
-    .menu {
-      > .menu-item {
-
-        // Adjust the padding and spacing for the dropdown-icon in right-to-left
-        // navigation menu
-        > a {
-          .dropdown-icon {
-            padding-left: $menu-link-padding;
-            padding-right: 0;
-          }
-        }
-      }
-
-      .sub-menu {
-
-        // Align the sub-menu fly-outs from right to left instead of left to
-        // right
-        top: 100%;
-        left: auto;
-        right: 0;
-
-        .sub-menu {
-          left: auto;
-          right: 100%;
-        }
-      }
-    }
-  }
-
-  // Align the top-level menu to the center for bigger screens
-  .nav--cen {
-    .menu {
-      justify-content: center;
-    }
-  }
 }
 
 //
@@ -329,7 +291,6 @@ $menu-link-padding: 1em;
       }
 
       // Hover effects for the links in top-level menu
-
       & > a {
         &:hover,
         &:active,
