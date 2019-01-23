@@ -206,19 +206,7 @@ $menu-link-padding: 1em;
 // Breakpoints or media queries to make our navigation menu adapt according
 // to the available screen width.
 //
-// 1.
-// 2.
-// 3.
-// 4.
-// 5.
-// 6.
-// 7.
-// 8.
-// 9.
-//10.
-//11.
-//12.
-//
+
 @media only screen and (min-width: 1024px) {
   .nav {
     // Make the top-level menu look horizontal on bigger screens
@@ -384,4 +372,8 @@ $menu-link-padding: 1em;
       }
     }
   }
+}
+
+a {
+  text-decoration: none;
 }
