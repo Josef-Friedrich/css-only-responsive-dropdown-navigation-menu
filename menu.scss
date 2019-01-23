@@ -1,38 +1,29 @@
 //
 // Variable definitions
-//
-// 1. Background-color for the top-level menu
-// 2. Color for the top-level menu
-// 3. Border-color settings for the top-level menu and items
-// 4. Background-color for the sub-menus
-// 5. Color for the sub-menus
-// 6. Border-color settings for the sub-menus and items
-// 7. Spacing/sizing for the items across the menu
-//
 
-// 1 //
+// Background-color for the top-level menu
 $menu-bg: black;
 $menu-bg-hover: #07c;
 
-// 2 //
+// Color for the top-level menu
 $menu-co: #ddd;
 $menu-co-hover: #fff;
 
-// 3 //
+// Border-color settings for the top-level menu and items
 $menu-bo: rgba(white, .1);
 
-// 4 //
+// Background-color for the sub-menus
 $sub-menu-bg: #eee;
 $sub-menu-bg-hover: white;
 
-// 5 //
+// Color for the sub-menus
 $sub-menu-co: #222;
 $sub-menu-co-hover: black;
 
-// 6 //
+// Border-color settings for the sub-menus and items
 $sub-menu-bo: rgba(black, .1);
 
-// 7 //
+// Spacing/sizing for the items across the menu
 $menu-link-padding: 1em;
 
 //
@@ -93,50 +84,27 @@ $menu-link-padding: 1em;
 //
 // Below goes the set-up for our menu-list, carrying several menu-items
 // (`.menu-items) as well as sub-menus (`.sub-menu`).
-//
-// 1. Make the menu-item take all available space
-// 2. Make the menu-items handle the fly-outs smoothly by not allowing
-//    break the flow
-// 3. Add a separation border except for the last menu-item
-// 4. Size-up, align, and make the hyperlinks acquire all the
-//    available space
-// 5. Add a seperating border to the sub-menu
-// 6. Make the sub-menu hidden
-// 7. Give a transition (fade-in/fade-out effect) to the fly-outs
-// 8. Hide the menu-items inside a hidden sub-menu to avoid
-//    border-flickering
-// 9. Make the sub-menu visible on hovering, selecting, or focusing the
-//    parent menu-item
-//10. Make the menu-items inside a hidden sub-menu visible and
-//    available when its parent menu-item is hovered, selected, or
-//    focused.
-//11. Add some rotation to the dropdown icon when the parent menu item
-//    gets hovered, selected, or focused
-//12. Make the dropdown icon size-up equally as the containing
-//    menu-item, and then fit it properly inside the menu-item
-//13. Populate the dropdown-icon element with the help of CSS
-//    pseudo-elements
-//14. Adjust the direction and dropdown-icon positioning for the
-//    right-to-left menu
-//
+
 .menu {
-  // 1 //
+  // Make the menu-item take all available space
   .menu-item {
     display: block;
 
-    // 2 //
+    // Make the menu-items handle the fly-outs smoothly by not allowing
+    //    break the flow
     &.has-children {
       &, .menu-item {
         position: relative;
       }
     }
 
-    // 3 //
+    // Add a separation border except for the last menu-item
     &:not(:last-child) {
       border-width: 0 0 1px;
     }
 
-    // 4 //
+    // Size-up, align, and make the hyperlinks acquire all the
+    // available space
     a {
       padding: $menu-link-padding;
       display: flex;
@@ -144,26 +112,28 @@ $menu-link-padding: 1em;
     }
   }
 
-  // 5 //
+  // Add a seperating border to the sub-menu
   .sub-menu {
     border-width: 1px 0 0;
 
-    // 6 //
+    // Make the sub-menu hidden
     visibility: hidden;
     opacity: 0;
     height: 0;
     width: 0;
 
-    // 7 //
+    // Give a transition (fade-in/fade-out effect) to the fly-outs
     transition: visibility .25s, opacity .25s ease-in-out;
 
-    // 8 //
+    // Hide the menu-items inside a hidden sub-menu to avoid
+    // border-flickering
     .menu-item {
       visibility: hidden;
     }
   }
 
-  // 9 //
+  // Make the sub-menu visible on hovering, selecting, or focusing the
+  // parent menu-item
   .menu-item {
     &:hover,
     &:active,
@@ -173,7 +143,9 @@ $menu-link-padding: 1em;
         height: auto;
         width: auto;
 
-        // 10 //
+        // Make the menu-items inside a hidden sub-menu visible and
+        // available when its parent menu-item is hovered, selected, or
+        // focused.
         &,
         .menu-item {
           visibility: visible;
@@ -181,7 +153,8 @@ $menu-link-padding: 1em;
       }
     }
 
-    // 11 //
+    // Add some rotation to the dropdown icon when the parent menu item
+    // gets hovered, selected, or focused
     > a {
       &:hover,
       &:active,
@@ -197,12 +170,14 @@ $menu-link-padding: 1em;
 
   .dropdown-icon {
 
-    // 12 //
+    // Make the dropdown icon size-up equally as the containing
+    // menu-item, and then fit it properly inside the menu-item
     padding: $menu-link-padding $menu-link-padding * 1.25;
     margin: -1em -1em -1em .5em;
     border-width: 0 0 0 1px;
 
-    // 13 //
+    // Populate the dropdown-icon element with the help of CSS
+    // pseudo-elements
     &:after {
       content: "+";
       display: block;
@@ -211,7 +186,8 @@ $menu-link-padding: 1em;
   }
 }
 
-// 14 //
+// Adjust the direction and dropdown-icon positioning for the
+// right-to-left menu
 .nav--rtl {
   direction: rtl;
   unicode-bidi: bidi-override;
@@ -230,36 +206,32 @@ $menu-link-padding: 1em;
 // Breakpoints or media queries to make our navigation menu adapt according
 // to the available screen width.
 //
-// 1. Make the top-level menu look horizontal on bigger screens
-// 2. Adjust the seperating border for the top-level horizontal menu
-// 3. Remove the left padding from the dropdown-icon in the top-level menu
-//    to maintain the proper whitespace.
-// 4. Give fly-outs (sub-menus) a width on hovering, selecting, focusing
-//    of parent menu-item
-// 5. Throw the sub-menus out of the flow to make them appear as fly-outs
-// 6. Make the sub-menu start just from below the parent element
-// 7. Zero-down the border-width as we don't really need separation here
-// 8. This makes the second sub-menu fly-out on the top-right side of their
-//    parent sub-menu
-// 9. Zero-down the border-width of the dropdown-icon
-//10. Adjust the padding and spacing for the dropdown-icon in right-to-left
-//    navigation menu
-//11. Align the sub-menu fly-outs from right to left instead of left to
-//    right
-//12. Align the top-level menu to the center for bigger screens
+// 1.
+// 2.
+// 3.
+// 4.
+// 5.
+// 6.
+// 7.
+// 8.
+// 9.
+//10.
+//11.
+//12.
 //
 @media only screen and (min-width: 1024px) {
   .nav {
-    // 1 //
+    // Make the top-level menu look horizontal on bigger screens
     .menu {
       display: flex;
       flex-flow: row wrap;
 
-      // 2 //
+      // Adjust the seperating border for the top-level horizontal menu
       > .menu-item {
         border-width: 0 1px 0 0;
 
-        // 3 //
+        // Remove the left padding from the dropdown-icon in the top-level menu
+        // to maintain the proper whitespace.
         > a {
           .dropdown-icon {
             padding-left: 0;
@@ -272,32 +244,34 @@ $menu-link-padding: 1em;
         &:active,
         &:focus {
 
-          // 4 //
+          // Give fly-outs (sub-menus) a width on hovering, selecting, focusing
+          // of parent menu-item
           > .sub-menu {
             width: 225px;
           }
         }
       }
-      // 5 //
+      // Throw the sub-menus out of the flow to make them appear as fly-outs
       .sub-menu {
         position: absolute;
         z-index: 3000;
 
-        // 6 //
+        // Make the sub-menu start just from below the parent element
         top: 100%;
         left: 0;
 
-        // 7 //
+        // Zero-down the border-width as we don't really need separation here
         border-width: 0;
 
-        // 8 //
+        // This makes the second sub-menu fly-out on the top-right side of their
+        // parent sub-menu
         .sub-menu {
           top: 0;
           left: 100%;
         }
       }
 
-      // 9 //
+      // Zero-down the border-width of the dropdown-icon
       .dropdown-icon {
         border-width: 0;
         padding: $menu-link-padding;
@@ -309,7 +283,8 @@ $menu-link-padding: 1em;
     .menu {
       > .menu-item {
 
-        // 10 //
+        // Adjust the padding and spacing for the dropdown-icon in right-to-left
+        // navigation menu
         > a {
           .dropdown-icon {
             padding-left: $menu-link-padding;
@@ -320,7 +295,8 @@ $menu-link-padding: 1em;
 
       .sub-menu {
 
-        // 11 //
+        // Align the sub-menu fly-outs from right to left instead of left to
+        // right
         top: 100%;
         left: auto;
         right: 0;
@@ -333,7 +309,7 @@ $menu-link-padding: 1em;
     }
   }
 
-  // 12 //
+  // Align the top-level menu to the center for bigger screens
   .nav--cen {
     .menu {
       justify-content: center;
@@ -344,35 +320,27 @@ $menu-link-padding: 1em;
 //
 // Theming (applying cosmetics)
 //
-// 1. Background for the top-level menu
-// 2. Border-color for the top-level menu and items
-// 3. Text and link color for the top-level menu
-// 4. Hover effects for the links in top-level menu
-// 5. Background for the sub-menus
-// 6. Border-color for the sub-menus and items
-// 7. Text and link color for the sub-menus
-// 8. Hover effects for the links in the sub-menus
-//
+
 .nav {
-  // 1 //
+  // Background for the top-level menu
   background-color: $menu-bg;
 
   .menu {
     > .menu-item {
-      // 2 //
+      // Border-color for the top-level menu and items
       &,
       .dropdown-icon {
         border-color: $menu-bo;
       }
     }
     > .menu-item {
-      // 3 //
+      // Text and link color for the top-level menu
       &,
       & > a {
         color: $menu-co;
       }
 
-      // 4 //
+      // Hover effects for the links in top-level menu
 
       & > a {
         &:hover,
@@ -386,10 +354,10 @@ $menu-link-padding: 1em;
   }
 
   .sub-menu {
-    // 5 //
+    // Background for the sub-menus
     background-color: $sub-menu-bg;
 
-    // 6 //
+    // Border-color for the sub-menus and items
     &,
     .menu-item {
       &,
@@ -399,13 +367,13 @@ $menu-link-padding: 1em;
     }
 
     .menu-item {
-      // 7 //
+      // Text and link color for the sub-menus
       &,
       a {
         color: $sub-menu-co;
       }
 
-      // 8 //
+      // Hover effects for the links in the sub-menus
       a {
         &:hover,
         &:active,
