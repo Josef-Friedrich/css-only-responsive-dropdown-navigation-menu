@@ -39,6 +39,7 @@
   opacity: 1;
   height: auto;
   width: auto;
+  display: block;
 }
 .menu .menu-item:hover > .sub-menu,
 .menu .menu-item:hover > .sub-menu .menu-item, .menu .menu-item:active > .sub-menu,
@@ -84,6 +85,7 @@
     width: 225px;
   }
   .nav .menu .sub-menu {
+    display: none;
     position: absolute;
     z-index: 3000;
     top: 100%;
